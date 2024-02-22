@@ -1,7 +1,7 @@
 package com.adsforgood.projectify.controller;
 
 import com.adsforgood.projectify.dto.UserDto;
-import com.adsforgood.projectify.service.UserService;
+import com.adsforgood.projectify.service.UserDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserDataService userService;
 
 
     @PostMapping("/finduserbyeap")

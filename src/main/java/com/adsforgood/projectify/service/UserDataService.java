@@ -5,7 +5,7 @@ import com.adsforgood.projectify.dto.UserDto;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface UserService {
+public interface UserDataService {
 
     /**
      * This method validates the userDto data

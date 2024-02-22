@@ -1,23 +1,32 @@
-package com.adsforgood.projectify.service;
+package com.adsforgood.projectify.service.impl;
 
 import com.adsforgood.projectify.domain.User;
 import com.adsforgood.projectify.dto.UserDto;
 import com.adsforgood.projectify.repository.UserRepository;
+import com.adsforgood.projectify.service.UserDataService;
+import com.adsforgood.projectify.utility.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserDataServiceImpl implements UserDataService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public void validateUserDTOfields(UserDto userDto) throws Exception {
         if(userDto == null){
             throw new Exception("User must not be null");
+        }
+        if(userDto.getName().trim().equals("")){
+            throw new Exception("Name must not be null or empty");
         }
         if(userDto.getEmail().trim().equals("")){
             throw new Exception("Email must not be null or empty");
@@ -31,8 +40,10 @@ public class UserServiceImpl implements UserService{
     public User convertUserDTOfieldsToUser(UserDto userDto) throws Exception {
         validateUserDTOfields(userDto);
         User user = User.builder()
+                .name(userDto.getName())
                 .email(userDto.getEmail())
-                .password(userDto.getPassword())
+                .password(passwordEncoder.encode(userDto.getPassword()))
+                .role(Role.USER)
                 .build();
         return user;
     }
