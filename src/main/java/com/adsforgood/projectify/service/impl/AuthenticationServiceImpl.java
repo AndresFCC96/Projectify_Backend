@@ -1,15 +1,14 @@
 package com.adsforgood.projectify.service.impl;
 
 
-import com.adsforgood.projectify.dao.request.SignUpRequest;
-import com.adsforgood.projectify.dao.request.SignInRequest;
-import com.adsforgood.projectify.dao.response.JwtAuthenticationResponse;
+import com.adsforgood.projectify.dto.request.SignUpRequest;
+import com.adsforgood.projectify.dto.request.SignInRequest;
+import com.adsforgood.projectify.dto.response.JwtAuthenticationResponse;
 import com.adsforgood.projectify.domain.Role;
 import com.adsforgood.projectify.domain.User;
 import com.adsforgood.projectify.repository.UserRepository;
 import com.adsforgood.projectify.service.AuthenticationService;
 import com.adsforgood.projectify.service.JwtService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

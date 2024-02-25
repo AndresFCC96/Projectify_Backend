@@ -1,6 +1,6 @@
 package com.adsforgood.projectify.testdatabuilder;
 
-import com.adsforgood.projectify.dao.request.SignInRequest;
+import com.adsforgood.projectify.dto.request.SignInRequest;
 
 public class SigninRequestDataBuilder {
 

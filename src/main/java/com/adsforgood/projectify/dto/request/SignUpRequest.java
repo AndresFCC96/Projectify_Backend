@@ -1,4 +1,4 @@
-package com.adsforgood.projectify.dao.request;
+package com.adsforgood.projectify.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

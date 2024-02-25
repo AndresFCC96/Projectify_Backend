@@ -1,8 +1,8 @@
 package com.adsforgood.projectify.controller;
 
-import com.adsforgood.projectify.dao.request.SignUpRequest;
-import com.adsforgood.projectify.dao.request.SignInRequest;
-import com.adsforgood.projectify.dao.response.JwtAuthenticationResponse;
+import com.adsforgood.projectify.dto.request.SignUpRequest;
+import com.adsforgood.projectify.dto.request.SignInRequest;
+import com.adsforgood.projectify.dto.response.JwtAuthenticationResponse;
 import com.adsforgood.projectify.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/auth")
-@RequiredArgsConstructor
 public class AuthenticationController {
 
     @Autowired

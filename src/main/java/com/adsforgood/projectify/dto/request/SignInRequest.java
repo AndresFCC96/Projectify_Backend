@@ -1,4 +1,4 @@
-package com.adsforgood.projectify.dao.response;
+package com.adsforgood.projectify.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class JwtAuthenticationResponse {
-    private String token;
+public class SignInRequest {
+    private String email;
+    private String password;
 }
