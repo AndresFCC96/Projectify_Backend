@@ -1,19 +1,17 @@
 package com.adsforgood.projectify.testdatabuilder;
 
-
+import com.adsforgood.projectify.dao.request.SignUpRequest;
 import com.adsforgood.projectify.domain.Role;
 import com.adsforgood.projectify.domain.User;
 
+public class SignUpRequestDataBuilder {
 
-public class UserTestDataBuilder {
-
-    private Long id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private Role role;
-    public UserTestDataBuilder(){
+    public SignUpRequestDataBuilder(){
         firstName = "Pablo";
         lastName = "Tejada";
         email = "pablo@projectify.com";
@@ -21,35 +19,30 @@ public class UserTestDataBuilder {
         role = Role.ADMIN;
     }
 
-    public UserTestDataBuilder userWithId(Long id){
-        this.id = id;
-        return this;
-    }
-
-    public UserTestDataBuilder userWithfirstName(String firstName){
+    public SignUpRequestDataBuilder userWithfirstName(String firstName){
         this.firstName = firstName;
         return this;
     }
 
-    public UserTestDataBuilder userWithlastName(String lastName){
+    public SignUpRequestDataBuilder userWithlastName(String lastName){
         this.lastName = lastName;
         return this;
     }
 
-    public UserTestDataBuilder userWithEmail(String email){
+    public SignUpRequestDataBuilder userWithEmail(String email){
         this.email = email;
         return this;
     }
 
-    public UserTestDataBuilder userWithPassword(String password){
+    public SignUpRequestDataBuilder userWithPassword(String password){
         this.password = password;
         return this;
     }
 
-    public UserTestDataBuilder userWithRole(Role role){
+    public SignUpRequestDataBuilder userWithRole(Role role){
         this.role = role;
         return this;
     }
 
-    public User build() {return new User(id, firstName, lastName, email, password, role);}
+    public SignUpRequest build() {return new SignUpRequest(firstName, lastName, email, password);}
 }
