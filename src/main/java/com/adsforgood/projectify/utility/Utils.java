@@ -1,14 +1,26 @@
 package com.adsforgood.projectify.utility;
 
-import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.security.NoSuchAlgorithmException;
-import java.text.DecimalFormat;
+import org.apache.commons.validator.routines.EmailValidator;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class Utils {
+
+    @Autowired
+    private static Calendar calendar;
+
+    public static int MIN_PERCENTAGE = 1;
+    public static int MAX_PERCENTAGE = 100;
+
+    public static int MIN_DAY = 1;
+    public static int MAX_DAY = 31;
+
+    public static int MIN_MONTH = 1;
+    public static int MAX_MONTH = 31;
 
     public static boolean isNumeric(String word) {
         boolean ret = false;
@@ -46,7 +58,66 @@ public class Utils {
         return ret;
     }
 
+    public static boolean isAValidEmail(String email){
+        boolean allowLocal = true;
+        return EmailValidator.getInstance(allowLocal).isValid(email);
+    }
+
+    public static boolean isValidPassword(String password){
+        String regex = "^(?=.*[0-9])"
+                + "(?=.*[a-z])(?=.*[A-Z])"
+                + "(?=.*[@#$%^&+=])"
+                + "(?=\\S+$).{8,20}$";
+        Pattern p = Pattern.compile(regex);
+        if (password == null) {
+            return false;
+        }
+        Matcher m = p.matcher(password);
+        return m.matches();
+    }
+
+    public static boolean isLeapYear(int year) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        return cal.getActualMaximum(Calendar.DAY_OF_YEAR) > 365;
+    }
+
+    public static boolean validateRangeField(int value, int min, int max){
+        if (value < min && value > max){
+            return true;
+        }
+        return false;
+    }
+
+    public static String[] parseStringDate(String date){
+        return date.split("/");
+    }
+
+    public static boolean isAValidStringDate(String date){
+        String[] dateArray = parseStringDate(date);
+        int day = Integer.parseInt(dateArray[0]);
+        int month = Integer.parseInt(dateArray[1]);
+        int year = Integer.parseInt(dateArray[2]);
+        boolean format = date.matches("([0-9]{2})/([0-9]{2})/([0-9]{4})");
+        return format &&
+                validateRangeField(day, MIN_DAY, MAX_DAY) &&
+                validateRangeField(month, MIN_MONTH, MAX_MONTH) &&
+                year <= calendar.get(Calendar.WEEK_OF_YEAR);
+    }
+    public static Calendar stringDateToDate(String date) throws ParseException {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        cal.setTime(sdf.parse("Mon Mar 14 16:02:37 GMT 2011"));
+        return cal;
+    }
+
+    public static int convertDateToISO8601(Calendar calendar){
+        calendar.setMinimalDaysInFirstWeek(4);
+        return calendar.get(Calendar.WEEK_OF_YEAR);
+    }
+
     public static void main(String[] args) {
-        System.out.println(Utils.isAString("lkoasmfas"));
+        Calendar calendar2 = Calendar.getInstance();
+        System.out.println(calendar2.get(Calendar.MONTH));
     }
 }

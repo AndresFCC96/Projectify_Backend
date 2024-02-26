@@ -9,11 +9,18 @@ import org.springframework.stereotype.Component;
 public class ProjectMapper {
 
     public static Project convertProjectDtoToProject(ProjectDto projectDto){
-        Project project = Project.builder()
+        return Project.builder()
                 .name(projectDto.getName())
                 .description(projectDto.getDescription())
                 .build();
-        return project;
+    }
+
+    public static ProjectDto convertProjectToProjectDto(Project project){
+        return ProjectDto.builder()
+                .id(project.getId())
+                .name(project.getName())
+                .description(project.getDescription())
+                .build();
     }
 
 }

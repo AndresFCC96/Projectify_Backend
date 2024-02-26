@@ -1,7 +1,7 @@
 package com.adsforgood.projectify.testdatabuilder;
 
-import com.adsforgood.projectify.dto.request.SignUpRequest;
 import com.adsforgood.projectify.domain.Role;
+import com.adsforgood.projectify.dto.request.SignUpRequest;
 
 public class SignUpRequestDataBuilder {
 

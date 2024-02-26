@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Calendar;
+import java.util.Date;
 
 @Data
 @Builder
@@ -15,5 +16,9 @@ public class ProjectTimeDto {
     private Long id;
     private Long projectId;
     private Long userId;
-    private Calendar weekTimeReport;
+    private String activitieName;
+    private int weekTimeReport;
+    private String weekDateReport;
+    private int percentageReport;
+    private Date reportedAt;
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 
 @Data
 @Builder
@@ -28,6 +29,18 @@ public class ProjectTime implements Serializable {
     @Column(name = "user_id")
     private Long userId;
 
+    @Column(name = "activitie_name")
+    private String activitieName;
+
     @Column(name = "week_time_report")
-    private Calendar weekTimeReport;
+    private int weekTimeReport;
+
+    @Column(name = "week_date_report")
+    private Calendar weekDateReport;
+
+    @Column(name = "percentage_report")
+    private int percentageReport;
+
+    @Column(name = "reported_at")
+    private Date reportedAt;
 }

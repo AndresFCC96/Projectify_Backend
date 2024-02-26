@@ -1,6 +1,7 @@
 package com.adsforgood.projectify.domain;
 
 import jakarta.persistence.*;
+import jdk.jfr.Percentage;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,10 +25,10 @@ public class User implements UserDetails {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "firstname")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "lasstname")
+    @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "email", unique = true)
@@ -35,6 +36,9 @@ public class User implements UserDetails {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "weekly_percentage")
+    private int weeklyPercentage;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role")

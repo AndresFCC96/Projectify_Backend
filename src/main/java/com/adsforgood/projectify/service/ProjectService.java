@@ -20,4 +20,6 @@ public interface ProjectService {
     Project modifyProject(ProjectDto projectDto) throws Exception;
 
     void deleteProject(Long projectId) throws Exception;
+
+    boolean validateName(String name) throws Exception;
 }

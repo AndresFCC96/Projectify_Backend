@@ -23,11 +23,11 @@ public class ExceptionManager extends RuntimeException{
             super("The value " + value + " is not a valid value");
         }
     }
-    public static class InvalidFieldException extends ExceptionManager{
+    public static class InvalidRangeException extends ExceptionManager{
         private static final long serialVersionUID = 1L;
 
-        public InvalidFieldException(String field, String value) {
-            super("The field " + field + " with value " + value + " is not valid");
+        public InvalidRangeException(String field, int min, int max) {
+            super(field + " must be between " +  min + " and " + max);
         }
     }
 
@@ -50,16 +50,36 @@ public class ExceptionManager extends RuntimeException{
     public static class EmptyFieldException extends ExceptionManager {
         private static final long serialVersionUID = 1L;
 
-        public EmptyFieldException(String field) {
-            super("The value for the field " + field + " can not be null or empty");
+        public EmptyFieldException(String field) {super("The value for the field " + field + " can not be null or empty");}
+    }
+
+    public static class InvalidFieldException extends ExceptionManager {
+        private static final long serialVersionUID = 1L;
+
+        public InvalidFieldException(String field, String value) {super("The value " + value + " for the field " + field + " is invalid or null");}
+    }
+
+    public static class InvalidPasswordFormatException extends ExceptionManager {
+        private static final long serialVersionUID = 1L;
+
+        public InvalidPasswordFormatException() {
+            super("Invalid password format");
         }
     }
 
-    public static class NotValidFormatException extends ExceptionManager {
+    public static class EmptyListException extends ExceptionManager {
         private static final long serialVersionUID = 1L;
 
-        public NotValidFormatException(String field) {
-            super("The Format or length for the field " + field + " is not valid");
+        public EmptyListException(String field) {
+            super("No elements found on " + field + " list");
+        }
+    }
+
+    public static class InvalidDateException extends ExceptionManager {
+        private static final long serialVersionUID = 1L;
+
+        public InvalidDateException() {
+            super("The given date is invalid");
         }
     }
 

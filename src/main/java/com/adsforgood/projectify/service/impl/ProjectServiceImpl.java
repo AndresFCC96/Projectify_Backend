@@ -45,7 +45,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project findProjectByName(String name) throws Exception {
-        if (Utils.isAString(name)) {
+        if (! Utils.isAString(name)) {
             throw new ExceptionManager.EmptyFieldException(name);
         } else {
             Optional<Project> project = projectRepository.findByName(name);
@@ -59,7 +59,8 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project saveProject(ProjectDto projectDto) throws Exception {
-        if (Utils.isAnObject(projectDto)) {
+        if (!Utils.isAnObject(projectDto)) {
+            System.out.println(Utils.isAnObject(projectDto));
             throw new ExceptionManager.NotAValidEntity(Project.class.getSimpleName());
         } else {
             validateName(projectDto.getName());
@@ -71,7 +72,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project modifyProject(ProjectDto projectDto) throws Exception {
-        if (Utils.isAnObject(projectDto)) {
+        if (!Utils.isAnObject(projectDto)) {
             throw new ExceptionManager.NotAValidEntity(Project.class.getSimpleName());
         } else {
             validateId(projectDto.getId());
@@ -94,15 +95,15 @@ public class ProjectServiceImpl implements ProjectService {
         }
     }
 
-    public boolean validateId(Long id) {
-        if (Utils.isNumeric(id.toString())) {
+    public boolean validateId(Long id) throws Exception{
+        if (!Utils.isNumeric(id.toString()) || id == null) {
             throw new ExceptionManager.InvalidValueException(id.toString());
         }else{
             return true;
         }
     }
-    public boolean validateName(String name) {
-        if (Utils.isAString(name) || name.isEmpty()) {
+    public boolean validateName(String name) throws Exception{
+        if (name.equals(null)) {
             throw new ExceptionManager.EmptyFieldException("Name");
         }else{
             return true;
@@ -110,10 +111,11 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     public boolean validateDescription(String description) {
-        if (Utils.isAString(description) || description.isEmpty()) {
+        if (!Utils.isAString(description) || description.isEmpty()) {
             throw new ExceptionManager.EmptyFieldException("Description");
         }else{
             return true;
         }
     }
+
 }

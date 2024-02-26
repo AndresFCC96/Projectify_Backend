@@ -59,7 +59,7 @@ public class ProjectController {
     }
 
     @PutMapping("/modifyproject")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> modifyAProject(@RequestBody ProjectDto projectDto) throws Exception {
         try {
             projectService.modifyProject(projectDto);
