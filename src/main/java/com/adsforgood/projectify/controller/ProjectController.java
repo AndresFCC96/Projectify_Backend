@@ -3,8 +3,6 @@ package com.adsforgood.projectify.controller;
 import com.adsforgood.projectify.Exception.ExceptionManager;
 import com.adsforgood.projectify.dto.ProjectDto;
 import com.adsforgood.projectify.service.ProjectService;
-import com.adsforgood.projectify.utility.Utils;
-import jakarta.persistence.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

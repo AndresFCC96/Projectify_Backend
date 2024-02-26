@@ -1,7 +1,6 @@
 package com.adsforgood.projectify.domain;
 
 import com.adsforgood.projectify.testdatabuilder.ProjectTestDataBuilder;
-import com.adsforgood.projectify.testdatabuilder.UserTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

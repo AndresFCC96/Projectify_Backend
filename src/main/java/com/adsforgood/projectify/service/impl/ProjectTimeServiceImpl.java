@@ -1,13 +1,9 @@
 package com.adsforgood.projectify.service.impl;
 
 import com.adsforgood.projectify.Exception.ExceptionManager;
-import com.adsforgood.projectify.domain.Project;
 import com.adsforgood.projectify.domain.ProjectTime;
-import com.adsforgood.projectify.domain.User;
 import com.adsforgood.projectify.dto.ProjectTimeDto;
-import com.adsforgood.projectify.mapper.ProjectMapper;
 import com.adsforgood.projectify.mapper.ProjectTimeMapper;
-import com.adsforgood.projectify.repository.ProjectRepository;
 import com.adsforgood.projectify.repository.ProjectTimeRepository;
 import com.adsforgood.projectify.service.ProjectService;
 import com.adsforgood.projectify.service.ProjectTimeService;
@@ -16,9 +12,7 @@ import com.adsforgood.projectify.utility.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProjectTimeServiceImpl implements ProjectTimeService {

@@ -2,7 +2,6 @@ package com.adsforgood.projectify.mapper;
 
 import com.adsforgood.projectify.domain.Project;
 import com.adsforgood.projectify.dto.ProjectDto;
-import com.adsforgood.projectify.utility.Utils;
 import org.springframework.stereotype.Component;
 
 @Component

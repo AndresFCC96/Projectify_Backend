@@ -1,30 +1,19 @@
 package com.adsforgood.projectify.service;
 
-import com.adsforgood.projectify.Exception.ExceptionManager;
 import com.adsforgood.projectify.domain.Project;
-import com.adsforgood.projectify.dto.ProjectDto;
-import com.adsforgood.projectify.mapper.ProjectMapper;
 import com.adsforgood.projectify.repository.ProjectRepository;
-import com.adsforgood.projectify.service.impl.ProjectServiceImpl;
 import com.adsforgood.projectify.testdatabuilder.ProjectTestDataBuilder;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.mockito.BDDMockito;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import org.junit.jupiter.api.extension.ExtendWith;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class ProjectTest {

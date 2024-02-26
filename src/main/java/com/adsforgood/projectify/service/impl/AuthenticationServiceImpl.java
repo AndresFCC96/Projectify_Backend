@@ -1,11 +1,11 @@
 package com.adsforgood.projectify.service.impl;
 
 
-import com.adsforgood.projectify.dto.request.SignUpRequest;
-import com.adsforgood.projectify.dto.request.SignInRequest;
-import com.adsforgood.projectify.dto.response.JwtAuthenticationResponse;
 import com.adsforgood.projectify.domain.Role;
 import com.adsforgood.projectify.domain.User;
+import com.adsforgood.projectify.dto.request.SignInRequest;
+import com.adsforgood.projectify.dto.request.SignUpRequest;
+import com.adsforgood.projectify.dto.response.JwtAuthenticationResponse;
 import com.adsforgood.projectify.repository.UserRepository;
 import com.adsforgood.projectify.service.AuthenticationService;
 import com.adsforgood.projectify.service.JwtService;

@@ -1,7 +1,6 @@
 package com.adsforgood.projectify.domain;
 
 import jakarta.persistence.*;
-import jdk.jfr.Percentage;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

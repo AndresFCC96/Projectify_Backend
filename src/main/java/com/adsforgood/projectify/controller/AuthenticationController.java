@@ -1,11 +1,9 @@
 package com.adsforgood.projectify.controller;
 
-import com.adsforgood.projectify.dto.request.SignUpRequest;
 import com.adsforgood.projectify.dto.request.SignInRequest;
+import com.adsforgood.projectify.dto.request.SignUpRequest;
 import com.adsforgood.projectify.dto.response.JwtAuthenticationResponse;
 import com.adsforgood.projectify.service.AuthenticationService;
-
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
