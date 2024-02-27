@@ -36,11 +36,11 @@ public class ProjectTime implements Serializable {
     private int weekTimeReport;
 
     @Column(name = "week_date_report")
-    private Calendar weekDateReport;
+    private String weekDateReport;
 
     @Column(name = "percentage_report")
     private int percentageReport;
 
     @Column(name = "reported_at")
-    private Date reportedAt;
+    private String reportedAt;
 }

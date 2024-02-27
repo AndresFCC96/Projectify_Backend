@@ -16,10 +16,10 @@ public class Utils {
     public static int MIN_PERCENTAGE = 1;
     public static int MAX_PERCENTAGE = 100;
 
-    public static int MIN_DAY = 1;
+    public static int MIN_DAY = 01;
     public static int MAX_DAY = 31;
 
-    public static int MIN_MONTH = 1;
+    public static int MIN_MONTH = 01;
     public static int MAX_MONTH = 31;
 
     public static boolean isNumeric(String word) {
@@ -34,7 +34,7 @@ public class Utils {
 
     public static boolean isOnlyLetters(String word) {
         boolean ret = false;
-        Pattern pat = Pattern.compile("[^A-Za-z0-9',.\\s]");
+        Pattern pat = Pattern.compile("[^A-Za-z',.\\s]");
         Matcher mat = pat.matcher(word);
         if (!mat.find()) {
             ret = true;
@@ -76,14 +76,8 @@ public class Utils {
         return m.matches();
     }
 
-    public static boolean isLeapYear(int year) {
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, year);
-        return cal.getActualMaximum(Calendar.DAY_OF_YEAR) > 365;
-    }
-
     public static boolean validateRangeField(int value, int min, int max){
-        if (value < min && value > max){
+        if (value >= min && value <= max){
             return true;
         }
         return false;
@@ -94,6 +88,7 @@ public class Utils {
     }
 
     public static boolean isAValidStringDate(String date){
+        Calendar calendar3 =  Calendar.getInstance();
         String[] dateArray = parseStringDate(date);
         int day = Integer.parseInt(dateArray[0]);
         int month = Integer.parseInt(dateArray[1]);
@@ -102,12 +97,12 @@ public class Utils {
         return format &&
                 validateRangeField(day, MIN_DAY, MAX_DAY) &&
                 validateRangeField(month, MIN_MONTH, MAX_MONTH) &&
-                year <= calendar.get(Calendar.WEEK_OF_YEAR);
+                year <= calendar3.get(Calendar.YEAR);
     }
     public static Calendar stringDateToDate(String date) throws ParseException {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        cal.setTime(sdf.parse("Mon Mar 14 16:02:37 GMT 2011"));
+        cal.setTime(sdf.parse(date));
         return cal;
     }
 
@@ -116,8 +111,4 @@ public class Utils {
         return calendar.get(Calendar.WEEK_OF_YEAR);
     }
 
-    public static void main(String[] args) {
-        Calendar calendar2 = Calendar.getInstance();
-        System.out.println(calendar2.get(Calendar.MONTH));
-    }
 }

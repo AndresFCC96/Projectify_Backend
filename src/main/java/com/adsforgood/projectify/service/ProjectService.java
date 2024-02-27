@@ -11,7 +11,7 @@ public interface ProjectService {
 
     List<Project> findAllProjects() throws Exception;
 
-    Project findProjectById(Long projectId) throws Exception;
+    Project findProjectById(String projectId) throws Exception;
 
     Project findProjectByName(String name) throws Exception;
 

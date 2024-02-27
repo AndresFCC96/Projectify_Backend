@@ -48,11 +48,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(Long id) throws Exception {
-        if(id == null){
+    public User findById(String id) throws Exception {
+        if(!Utils.isNumeric(id)){
             throw new Exception("Id must not be null");
         }
-        Optional<User> user = userRepository.findById(id);
+        Optional<User> user = userRepository.findById(Long.valueOf(id));
         if(user.isEmpty()){
             throw new Exception("An user with that Id can't be found");
         }else{
@@ -70,7 +70,6 @@ public class UserServiceImpl implements UserService {
             }else {
                 validateName(userDto.getFirstName(), userDto.getLastName());
                 validateEmail(userDto.getEmail());
-                validatePassword(userDto.getPassword());
                 validatePercentage(userDto.getWeeklyPercentage());
                 User user = UserMapper.convertUserDtoToUser(userDto);
                 user.setId(userDto.getId());

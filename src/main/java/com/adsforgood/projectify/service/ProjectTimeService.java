@@ -9,6 +9,8 @@ import java.util.List;
 @Service
 public interface ProjectTimeService {
 
+    int dateToISO8601(String date) throws Exception;
+
     ProjectTime reportTime(ProjectTimeDto projectTimeDto) throws Exception;
 
     List<ProjectTime> getAllReportsPerUserPerProject(Long idProject, Long userId);

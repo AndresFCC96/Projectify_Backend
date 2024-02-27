@@ -1,6 +1,6 @@
 package com.adsforgood.projectify.domain;
 
-import com.adsforgood.projectify.testdatabuilder.ProjectTestDataBuilder;
+import com.adsforgood.projectify.testdatabuilder.domain.ProjectTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -26,14 +26,30 @@ public class ProjectTest {
     }
 
     @Test
+    @DisplayName("Project shouldn't be created correctly")
+    void theProjectMustNotBeCreatedSucesfully(){
+        //Act
+        Project project = new ProjectTestDataBuilder()
+                .projectWithId(null)
+                .projectWithName(null)
+                .projectWithDescripction(null)
+                .build();
+        //Assert
+        assertNull(project.getId());
+        assertNull(project.getName());
+        assertNull(project.getDescription());
+    }
+
+    @Test
     @DisplayName("Must fail without Id")
     void mustFailWithoutId(){
         //Arrange
         Project projectTestDataBuilder = new ProjectTestDataBuilder()
                 .projectWithId(null)
                 .build();
+        Project ashawanda = new Project(null, "sfa", "Ssgsaga");
         //Act-Assert
-        assertNull(projectTestDataBuilder.getId());
+        assertNull(ashawanda.getId());
     }
 
     @Test

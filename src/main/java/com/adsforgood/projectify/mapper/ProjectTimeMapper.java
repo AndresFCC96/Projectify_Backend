@@ -16,7 +16,7 @@ public class ProjectTimeMapper {
                 .userId(projectTimeDto.getUserId())
                 .activitieName(projectTimeDto.getActivitieName())
                 .weekTimeReport(projectTimeDto.getWeekTimeReport())
-                .weekDateReport(Utils.stringDateToDate(projectTimeDto.getWeekDateReport()))
+                .weekDateReport(projectTimeDto.getWeekDateReport())
                 .percentageReport(projectTimeDto.getPercentageReport())
                 .reportedAt(projectTimeDto.getReportedAt())
                 .build();
@@ -29,7 +29,7 @@ public class ProjectTimeMapper {
                 .userId(projectTime.getUserId())
                 .activitieName(projectTime.getActivitieName())
                 .weekTimeReport(projectTime.getWeekTimeReport())
-                .weekDateReport(projectTime.getWeekDateReport().toString())
+                .weekDateReport(projectTime.getWeekDateReport())
                 .percentageReport(projectTime.getPercentageReport())
                 .reportedAt(projectTime.getReportedAt())
                 .build();

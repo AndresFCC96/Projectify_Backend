@@ -29,7 +29,7 @@ public class ProjectController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> findProjectById(@RequestParam("id") Long id) throws Exception {
         try {
-            return ResponseEntity.ok().body(projectService.findProjectById(id));
+            return ResponseEntity.ok().body(projectService.findProjectById(id.toString()));
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
@@ -67,9 +67,9 @@ public class ProjectController {
         }
     }
 
-    @DeleteMapping("/deleteuser")
+    @DeleteMapping("/deleteproject")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> deleteuser(@RequestParam("id") Long projectId){
+    public ResponseEntity<?> deleteproject(@RequestParam("id") Long projectId){
         try {
             projectService.deleteProject(projectId);
             return ResponseEntity.ok(ExceptionManager.ENTITY_SUCCESFULLYDELETED);

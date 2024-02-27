@@ -15,7 +15,7 @@ public interface UserService {
 
     User findByEmail(String email) throws Exception;
 
-    User findById(Long id) throws Exception;
+    User findById(String id) throws Exception;
 
     User modifyUser(UserDto userDto) throws Exception;
 

@@ -1,4 +1,4 @@
-package com.adsforgood.projectify.testdatabuilder;
+package com.adsforgood.projectify.testdatabuilder.dto.request;
 
 import com.adsforgood.projectify.dto.request.SignInRequest;
 

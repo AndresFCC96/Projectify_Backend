@@ -19,5 +19,5 @@ public class ProjectTimeDto {
     private int weekTimeReport;
     private String weekDateReport;
     private int percentageReport;
-    private Date reportedAt;
+    private String reportedAt;
 }

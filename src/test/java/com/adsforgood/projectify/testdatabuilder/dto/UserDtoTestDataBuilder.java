@@ -1,11 +1,11 @@
-package com.adsforgood.projectify.testdatabuilder;
+package com.adsforgood.projectify.testdatabuilder.dto;
 
 
 import com.adsforgood.projectify.domain.Role;
-import com.adsforgood.projectify.domain.User;
+import com.adsforgood.projectify.dto.UserDto;
 
 
-public class UserTestDataBuilder {
+public class UserDtoTestDataBuilder {
 
     private Long id;
     private String firstName;
@@ -14,7 +14,7 @@ public class UserTestDataBuilder {
     private String password;
     private Role role;
     private int weeklyPercentage;
-    public UserTestDataBuilder(){
+    public UserDtoTestDataBuilder(){
         firstName = "Pablo";
         lastName = "Tejada";
         email = "pablo@projectify.com";
@@ -23,40 +23,40 @@ public class UserTestDataBuilder {
         weeklyPercentage = 100;
     }
 
-    public UserTestDataBuilder userWithId(Long id){
+    public UserDtoTestDataBuilder userWithId(Long id){
         this.id = id;
         return this;
     }
 
-    public UserTestDataBuilder userWithfirstName(String firstName){
+    public UserDtoTestDataBuilder userWithfirstName(String firstName){
         this.firstName = firstName;
         return this;
     }
 
-    public UserTestDataBuilder userWithlastName(String lastName){
+    public UserDtoTestDataBuilder userWithlastName(String lastName){
         this.lastName = lastName;
         return this;
     }
 
-    public UserTestDataBuilder userWithEmail(String email){
+    public UserDtoTestDataBuilder userWithEmail(String email){
         this.email = email;
         return this;
     }
 
-    public UserTestDataBuilder userWithPassword(String password){
+    public UserDtoTestDataBuilder userWithPassword(String password){
         this.password = password;
         return this;
     }
-    public UserTestDataBuilder userWithWeeklyPercentage(int weeklyPercentage){
+    public UserDtoTestDataBuilder userWithWeeklyPercentage(int weeklyPercentage){
         this.weeklyPercentage = weeklyPercentage;
         return this;
     }
 
-    public UserTestDataBuilder userWithRole(Role role){
+    public UserDtoTestDataBuilder userWithRole(Role role){
         this.role = role;
         return this;
     }
 
 
-    public User build() {return new User(id, firstName, lastName, email, password, weeklyPercentage, role);}
+    public UserDto build() {return new UserDto(id, firstName, lastName, email, password, weeklyPercentage, role);}
 }

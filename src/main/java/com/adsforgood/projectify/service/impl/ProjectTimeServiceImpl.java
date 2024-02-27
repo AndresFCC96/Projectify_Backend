@@ -2,8 +2,11 @@ package com.adsforgood.projectify.service.impl;
 
 import com.adsforgood.projectify.Exception.ExceptionManager;
 import com.adsforgood.projectify.domain.ProjectTime;
+import com.adsforgood.projectify.domain.User;
 import com.adsforgood.projectify.dto.ProjectTimeDto;
+import com.adsforgood.projectify.dto.UserDto;
 import com.adsforgood.projectify.mapper.ProjectTimeMapper;
+import com.adsforgood.projectify.mapper.UserMapper;
 import com.adsforgood.projectify.repository.ProjectTimeRepository;
 import com.adsforgood.projectify.service.ProjectService;
 import com.adsforgood.projectify.service.ProjectTimeService;
@@ -12,6 +15,7 @@ import com.adsforgood.projectify.utility.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.List;
 
 @Service
@@ -24,10 +28,18 @@ public class ProjectTimeServiceImpl implements ProjectTimeService {
     private ProjectService projectService;
 
     @Autowired
-    private ProjectTimeService projectTimeService;
-
-    @Autowired
     private ProjectTimeRepository projectTimeRepository;
+
+    @Override
+    public int dateToISO8601(String date) throws Exception {
+        if (!Utils.isAString(date)){
+            throw new ExceptionManager.InvalidDateException();
+        }else{
+            validateDate(date);
+            Calendar cal = Utils.stringDateToDate(date);
+            return Utils.convertDateToISO8601(cal);
+        }
+    }
 
     @Override
     public ProjectTime reportTime(ProjectTimeDto projectTimeDto) throws Exception {
@@ -40,9 +52,18 @@ public class ProjectTimeServiceImpl implements ProjectTimeService {
             validateTimReportOrPercentageReport("WeekTimeReport", projectTimeDto.getWeekTimeReport());
             validateTimReportOrPercentageReport("PercentageReport", projectTimeDto.getPercentageReport());
             validateDate(projectTimeDto.getReportedAt().toString());
-            projectService.findProjectById(projectTimeDto.getProjectId());
-            userService.findById(projectTimeDto.getUserId());
-            return projectTimeRepository.save(ProjectTimeMapper.convertProjectTimeDtotoProjectTime(projectTimeDto));
+            projectService.findProjectById(projectTimeDto.getProjectId().toString());
+            User user = userService.findById(projectTimeDto.getUserId().toString());
+            if (user.getWeeklyPercentage() > projectTimeDto.getPercentageReport()) {
+                user.setWeeklyPercentage(user.getWeeklyPercentage() - projectTimeDto.getPercentageReport());
+            } else {
+                user.setWeeklyPercentage(projectTimeDto.getPercentageReport() - user.getWeeklyPercentage());
+            }
+            UserDto userDto = UserMapper.convertUserToUserDto(user);
+            userDto.setId(user.getId());
+            userService.modifyUser(userDto);
+            ProjectTime projectTime = ProjectTimeMapper.convertProjectTimeDtotoProjectTime(projectTimeDto);
+            return projectTimeRepository.save(projectTime);
         }
     }
 

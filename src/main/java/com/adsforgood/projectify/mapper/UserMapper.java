@@ -8,24 +8,24 @@ import org.springframework.stereotype.Component;
 public class UserMapper {
 
     public static User convertUserDtoToUser(UserDto userDto){
-        User user = User.builder()
+        return User.builder()
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())
                 .email(userDto.getEmail())
                 .password(userDto.getPassword())
+                .role(userDto.getRole())
                 .weeklyPercentage(userDto.getWeeklyPercentage())
                 .build();
-        return user;
     }
 
     public static UserDto convertUserToUserDto(User user){
-        UserDto userDto = UserDto.builder()
+       return UserDto.builder()
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .email(user.getEmail())
                 .password(user.getPassword())
+                .role(user.getRole())
                 .weeklyPercentage(user.getWeeklyPercentage())
                 .build();
-        return userDto;
     }
 }

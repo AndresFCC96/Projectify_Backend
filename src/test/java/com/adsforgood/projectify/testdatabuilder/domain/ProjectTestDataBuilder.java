@@ -1,4 +1,4 @@
-package com.adsforgood.projectify.testdatabuilder;
+package com.adsforgood.projectify.testdatabuilder.domain;
 
 import com.adsforgood.projectify.domain.Project;
 
