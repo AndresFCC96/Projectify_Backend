@@ -1,15 +1,11 @@
 package com.adsforgood.projectify.service;
 
-import com.adsforgood.projectify.Exception.ExceptionManager;
-
 import com.adsforgood.projectify.domain.Project;
 import com.adsforgood.projectify.dto.ProjectDto;
-import com.adsforgood.projectify.mapper.ProjectMapper;
 import com.adsforgood.projectify.repository.ProjectRepository;
 import com.adsforgood.projectify.service.impl.ProjectServiceImpl;
 import com.adsforgood.projectify.testdatabuilder.domain.ProjectTestDataBuilder;
 import com.adsforgood.projectify.testdatabuilder.dto.ProjectDtoTestDataBuilder;
-import com.adsforgood.projectify.utility.Utils;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +15,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 

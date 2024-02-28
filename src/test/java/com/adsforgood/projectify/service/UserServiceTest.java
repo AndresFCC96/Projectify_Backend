@@ -1,17 +1,11 @@
 package com.adsforgood.projectify.service;
 
-import com.adsforgood.projectify.domain.Project;
 import com.adsforgood.projectify.domain.Role;
 import com.adsforgood.projectify.domain.User;
-import com.adsforgood.projectify.dto.ProjectDto;
 import com.adsforgood.projectify.dto.UserDto;
-import com.adsforgood.projectify.repository.ProjectRepository;
 import com.adsforgood.projectify.repository.UserRepository;
-import com.adsforgood.projectify.service.impl.ProjectServiceImpl;
 import com.adsforgood.projectify.service.impl.UserServiceImpl;
-import com.adsforgood.projectify.testdatabuilder.domain.ProjectTestDataBuilder;
 import com.adsforgood.projectify.testdatabuilder.domain.UserTestDataBuilder;
-import com.adsforgood.projectify.testdatabuilder.dto.ProjectDtoTestDataBuilder;
 import com.adsforgood.projectify.testdatabuilder.dto.UserDtoTestDataBuilder;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;

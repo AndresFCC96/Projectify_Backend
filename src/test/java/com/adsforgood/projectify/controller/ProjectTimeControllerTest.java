@@ -1,13 +1,10 @@
 package com.adsforgood.projectify.controller;
 
-import com.adsforgood.projectify.domain.Project;
 import com.adsforgood.projectify.domain.ProjectTime;
 import com.adsforgood.projectify.dto.ProjectDto;
 import com.adsforgood.projectify.dto.ProjectTimeDto;
 import com.adsforgood.projectify.mapper.ProjectTimeMapper;
-import com.adsforgood.projectify.service.ProjectService;
 import com.adsforgood.projectify.service.ProjectTimeService;
-import com.adsforgood.projectify.testdatabuilder.domain.ProjectTestDataBuilder;
 import com.adsforgood.projectify.testdatabuilder.domain.ProjectTimeTestDataBuilder;
 import com.adsforgood.projectify.testdatabuilder.dto.ProjectDtoTestDataBuilder;
 import com.adsforgood.projectify.testdatabuilder.dto.ProjectTimeDtoTestDataBuilder;
@@ -25,8 +22,8 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

@@ -2,7 +2,6 @@ package com.adsforgood.projectify.mapper;
 
 import com.adsforgood.projectify.domain.ProjectTime;
 import com.adsforgood.projectify.dto.ProjectTimeDto;
-import com.adsforgood.projectify.utility.Utils;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
