@@ -49,11 +49,17 @@ This is a short tutorial about how to start
 You should authenticate as an user to get the bearer token prior to make any request
 
 1.Make sure the project is downloaded
+
 2.Install or get a postgresql name projectify
+
 3.Build the app with your credentials
+
 4.head to localhost/api/v1/auth/login and send a Json request
+
 5.Response must return you a token where you can use in your overall request 
+
 6.Token last 30 minutes so after this time you should be logged out
+
 7.Enjoy!
 
 
