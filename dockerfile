@@ -8,5 +8,5 @@ ENV DATABASE_USERNAME postgres
 ENV DATABASE_PASSWORD Andres1738
 ENV DATABASE_PLATFORM org.hibernate.dialect.PostgreSQLDialect
 
-COPY ./target/projectify-0.0.1-SNAPSHOT.jar java-app.jar
+COPY target/projectify-0.0.1-SNAPSHOT.jar java-app.jar
 ENTRYPOINT ["java", "-jar", "java-app.jar"]
