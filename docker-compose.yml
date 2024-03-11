@@ -8,9 +8,9 @@ services:
     ports:
       - 2020:2020
     environment:
-      - SPRING_DATASOURCE_URL = jdbc:postgresql://java_db:5432/Projectify
-      - SPRING_DATABASE_USERNAME = postgres
-      - SPRING_DATABASE_PASSWORD = Andres1738
+      - SPRING_DATASOURCE_URL = jdbc:postgresql://dpg-cnnik5779t8c739idl5g-a/projectify
+      - SPRING_DATABASE_USERNAME = projectify_dev
+      - SPRING_DATABASE_PASSWORD = gfFcYdpWUGWCce5Tsz0NehEZTssmlija
     depends_on:
       - java_db
   java_db:

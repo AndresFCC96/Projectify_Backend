@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.adsforgood.projectify.controller.ProjectControllerTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.284 s -- in com.adsforgood.projectify.controller.ProjectControllerTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.386 s -- in com.adsforgood.projectify.controller.ProjectControllerTest
