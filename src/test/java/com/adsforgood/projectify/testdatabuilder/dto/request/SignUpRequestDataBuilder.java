@@ -43,5 +43,5 @@ public class SignUpRequestDataBuilder {
         return this;
     }
 
-    public SignUpRequest build() {return new SignUpRequest(firstName, lastName, email, password);}
+    public SignUpRequest build() {return new SignUpRequest(firstName, lastName, email, password, role);}
 }

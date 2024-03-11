@@ -1,9 +1,11 @@
 package com.adsforgood.projectify.config;
 
+import com.adsforgood.projectify.domain.Role;
 import com.adsforgood.projectify.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -28,7 +30,12 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request.requestMatchers("/api/v1/auth/**")
-                        .permitAll().anyRequest().authenticated())
+                        .permitAll()
+                        .requestMatchers(HttpMethod.GET).hasAnyAuthority(Role.USER.name(), Role.ADMIN.name())
+                        .requestMatchers(HttpMethod.POST).hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers(HttpMethod.PUT).hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers(HttpMethod.DELETE).hasAnyAuthority(Role.ADMIN.name())
+                        .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
                         jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

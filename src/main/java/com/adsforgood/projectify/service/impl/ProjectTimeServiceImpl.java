@@ -12,6 +12,7 @@ import com.adsforgood.projectify.service.ProjectService;
 import com.adsforgood.projectify.service.ProjectTimeService;
 import com.adsforgood.projectify.service.UserService;
 import com.adsforgood.projectify.utility.Utils;
+import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class ProjectTimeServiceImpl implements ProjectTimeService {
 
     @Override
     public int dateToISO8601(String date) throws Exception {
-        if (!Utils.isAString(date)){
+        if (!Utils.isAString(date) || !Utils.isAValidStringDate(date)){
             throw new ExceptionManager.InvalidDateException();
         }else{
             validateDate(date);
